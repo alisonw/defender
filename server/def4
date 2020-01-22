@@ -1,0 +1,43 @@
+#!/bin/sh
+if [ "$(id -u)" != "0" ]; then
+   echo "This script must be run as root"
+   exit 1
+fi
+
+head="/usr/local/share/defender/default/head.rules"
+tail="/usr/local/share/defender/default/tail.rules"
+ind4="/usr/local/share/defender/block/individual4.list"
+ind4b=$ind4."bak"
+opfile="/usr/local/share/defender/before.rules"
+livefile="/etc/ufw/before.rules"
+webfile="/var/www/===server address===/before.rules"
+
+if [ "$#" -lt 1 ]; then
+   echo "IP address to block must be specified"
+   exit 1
+fi
+
+echo "$1" >> $ind4
+echo "====> $1 added to block list"
+
+if [ "$#" -gt 1 ]; then
+   if [ "$2" ]; then
+      cp $ind4 $ind4b
+      sort $ind4b | uniq > $ind4
+
+      cp $head $opfile
+      echo "#### block IP4 addresses " >> $opfile
+      while IFS= read -r line
+        do
+           echo "-A ufw-before-input -s $line -j DROP" >> $opfile
+        done < $ind4
+      echo "#### end of block IP4 addresses " >> $opfile
+      cat $tail >> $opfile
+      cp $opfile $livefile
+      cp $opfile $webfile
+      ufw reload
+      echo "=====> ufw reloaded"
+   fi
+fi
+
+
