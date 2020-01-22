@@ -1,8 +1,10 @@
 # defender
-A bash scripting set for blocking IPs with ufw and duplicating to other servers via http delivery.
+A bash scripting set for blocking IPs with ufw and duplicating to other servers via http delivery. For a single-server option with no clients then you just need to install the 'server' section.
 
 Installation
 ============
+
+SERVER.
 
 On the server a command line instruction can be used to add one or more IP addresses / subnets to be blocked, either IPv4 or IPv6.
 
@@ -15,6 +17,8 @@ On the server a command line instruction can be used to add one or more IP addre
 		ln -s /usr/local/share/defender/def6 /usr/sbin/
 		chmod +x /usr/sbin/def4
 		chmod +x /usr/sbin/def6
+
+CLIENT.
 
 On the client machines (other servers) a cron job retrieves the updated list every hour and activates it on that machine.
 
@@ -41,5 +45,9 @@ Usage examples
 		> defend
 	at any time will bring across the latest version. Doing so will not impact on the regular task
 
+tl;dr option
+============
+
+Although I would recommend you add the IP addresses which are trying to attack -you- you may just install the client option and use the block lists I create for my use if you would like to; just drop me a message. I didn't include my current list in the install as, obviously, there are security considerations were I to do so.
 
 AlisonW
