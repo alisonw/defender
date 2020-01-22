@@ -1,0 +1,21 @@
+#!/bin/sh
+if [ "$(id -u)" != "0" ]; then
+   echo "This script must be run as root"
+   exit 1
+fi
+
+importfile="http://===server address===/before.rules"
+livefile="/etc/ufw/before.rules"
+
+import6file="http://===server address===/before6.rules"
+live6file="/etc/ufw/before6.rules"
+
+if [ "wget -S --spider $importfile  2>&1 | grep 'HTTP/1.1 200 OK'" ]; then
+   wget -O $livefile $importfile
+   ufw reload
+fi
+
+if [ "wget -S --spider $import6file  2>&1 | grep 'HTTP/1.1 200 OK'" ]; then
+   wget -O $live6file $import6file
+   ufw reload
+fi

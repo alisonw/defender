@@ -1,0 +1,18 @@
+#
+# rules.before
+#
+# Rules that should be run before the ufw command line added rules. Custom
+# rules should be added to one of these chains:
+#   ufw6-before-input
+#   ufw6-before-output
+#   ufw6-before-forward
+#
+
+# Don't delete these required lines, otherwise there will be errors
+*filter
+:ufw6-before-input - [0:0]
+:ufw6-before-output - [0:0]
+:ufw6-before-forward - [0:0]
+# End required lines
+
+
