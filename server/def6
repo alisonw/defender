@@ -8,6 +8,8 @@ head="/usr/local/share/defender/default/head6.rules"
 tail="/usr/local/share/defender/default/tail6.rules"
 ind6="/usr/local/share/defender/block/individual6.list"
 ind6b=$ind6."bak"
+ind6c=$ind6."tmp"
+
 opfile="/usr/local/share/defender/before6.rules"
 livefile="/etc/ufw/before6.rules"
 webfile="/var/www/===server address===/before6.rules"
@@ -24,7 +26,7 @@ if [ "$#" -gt 1 ]; then
    if [ "$2" ]; then
       cp $ind6 $ind6b
       sort $ind6b | uniq > $ind6
-      awk 'NF' $ind6 > $ind6
+      awk 'NF' $ind4c > $ind4 
       
       cp $head $opfile
       echo "#### block IP6 addresses " >> $opfile
