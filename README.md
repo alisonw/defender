@@ -32,10 +32,10 @@ Usage examples
 		> def4 1.2.3.4/28 re
 	To block more than one address or subnet, leave off the 're' (as in 'reload'), including it only the final entry.
 
-        To block a single IPv6 address or subnet, on the *server*:
-                > def6 "0000:0000::0000" re   
-                > def6 "0000:0000::0000"/60 re
-        To block more than one address or subnet, leave off the 're' (as in 'reload'), including it only the final entry.
+	To block a single IPv6 address or subnet, on the *server*:
+		> def6 "0000:0000::0000" re   
+		> def6 "0000:0000::0000"/60 re
+	To block more than one address or subnet, leave off the 're' (as in 'reload'), including it only the final entry.
 
 	If you don't wish to wait for the cron job on the client machine then just running
 		> defend
