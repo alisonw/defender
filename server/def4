@@ -8,6 +8,7 @@ head="/usr/local/share/defender/default/head.rules"
 tail="/usr/local/share/defender/default/tail.rules"
 ind4="/usr/local/share/defender/block/individual4.list"
 ind4b=$ind4."bak"
+ind4c=$ind4."tmp"
 opfile="/usr/local/share/defender/before.rules"
 livefile="/etc/ufw/before.rules"
 webfile="/var/www/===server address===/before.rules"
@@ -24,7 +25,7 @@ if [ "$#" -gt 1 ]; then
    if [ "$2" ]; then
       cp $ind4 $ind4b
       sort $ind4b | uniq > $ind4
-      awk 'NF' $ind4 > $ind4
+      awk 'NF' $ind4c > $ind4
      
       cp $head $opfile
       echo "#### block IP4 addresses " >> $opfile
