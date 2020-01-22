@@ -8,13 +8,13 @@ On the server a command line instruction can be used to add one or more IP addre
 
 	0. If you have amended your local ufw before.rules and before6.rules then amend the files in server/default as appropriate
 	1. Copy the folder to /usr/local/share/defender
-        2. Amend the webfile= locations as appropriate - they can either be IP addresses or use DNS.
-		*** Note this location as it will be required for the client servers
-	       3. Create links
+	2. Amend the webfile= locations as appropriate - they can either be IP addresses or use DNS.
+		** Note this location as it will be required for the client servers
+	3. Create links
 		ln -s /usr/local/share/defender/def4 /usr/sbin/
 		ln -s /usr/local/share/defender/def6 /usr/sbin/
 		chmod +x /usr/sbin/def4
-	               chmod +x /usr/sbin/def6
+		chmod +x /usr/sbin/def6
 
 On the client machines (other servers) a cron job retrieves the updated list every hour and activates it on that machine.
 
