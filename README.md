@@ -1,7 +1,7 @@
 # defender
 A bash scripting set for blocking IPs with ufw and duplicating to other servers via http delivery.
 
-INSTALLATION
+Installation
 ============
 
 On the server a command line instruction can be used to add one or more IP addresses / subnets to be blocked, either IPv4 or IPv6.
@@ -22,7 +22,7 @@ On the client machines (other servers) a cron job retrieves the updated list eve
 	3. add the following line to /etc/crontab to run it hourly (adjust to suit your own preference)
 		14 *    * * *   root    /usr/sbin/defend
 
-USAGE EXAMPLES
+Usage examples
 ==============
 
 	To block a single IPv4 address or subnet, on the *server*:
