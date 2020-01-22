@@ -25,7 +25,7 @@ echo "====> $1 added to block list"
 if [ "$#" -gt 1 ]; then
    if [ "$2" ]; then
       cp $ind6 $ind6b
-      sort $ind6b | uniq > $ind6
+      sort $ind6b | uniq > $ind6c
       awk 'NF' $ind4c > $ind4 
       
       cp $head $opfile
