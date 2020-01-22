@@ -40,6 +40,9 @@ Usage examples
 		> def6 "0000:0000::0000" re   
 		> def6 "0000:0000::0000"/60 re
 	To block more than one address or subnet, leave off the 're' (as in 'reload'), including it only the final entry.
+	*** Note that IPv6 addresses must be within quotation marks
+	
+	Adding an address already blocked isn't a problem as duplicates are automatically removed.
 
 	If you don't wish to wait for the cron job on the client machine then just running
 		> defend
