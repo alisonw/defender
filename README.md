@@ -38,7 +38,7 @@ Usage examples
 
 	To block a single IPv6 address or subnet, on the *server*:
 		> def6 "0000:0000::0000" re   
-		> def6 "0000:0000::0000"/60 re
+		> def6 "0000:0000::0000/60" re
 	To block more than one address or subnet, leave off the 're' (as in 'reload'), including it only the final entry.
 	*** Note that IPv6 addresses must be within quotation marks
 	
